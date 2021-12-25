@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Dank Mono", monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  width: 400px;
+  position: relative;
+  border: 1px solid #333;
+  border-radius: 4px;
+  overflow: auto;
+}
+
+.slot {
+  display: flex;
+  align-items: flex-end;
+}
+
+.slot:last-child {
+  padding-bottom: 25px;
+}
+
+.time {
+  line-height: 0;
+  width: 85px;
+  text-align: end;
+}
+
+.box {
+  display: flex;
+  height: 50px;
+  width: 290px;
+  border-bottom: 1px solid #333;
+  margin-left: 0.5rem;
+  position: relative;
+}
+
+.details {
+  color: white;
+  line-height: 1.2;
+  font-size: 0.75em;
+  padding: 2px;
+}
