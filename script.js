@@ -53,11 +53,11 @@ function isConflictingMeeting(meetStart, meetIdx) {
 function getTime(val) {
   const rem = val % 12
   const time = rem ? rem : 12
-  let meridian = 'am'
+  let meridiem = 'am'
   if ((!rem && val === 12) || (rem && val > 12)) {
-    meridian = 'pm'
+    meridiem = 'pm'
   }
-  return `${time}:00 ${meridian}`
+  return `${time}:00 ${meridiem}`
 }
 
 /**
