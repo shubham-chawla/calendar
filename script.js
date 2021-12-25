@@ -50,14 +50,15 @@ function isConflictingMeeting(meetStart, meetIdx) {
   return conflictingMeetings.length
 }
 
-function getTime(val) {
-  const rem = val % 12
+function getTime(hrs, mins = '00') {
+  const hrsInt = parseInt(hrs, 10)
+  const rem = hrsInt % 12
   const time = rem ? rem : 12
   let meridiem = 'am'
-  if ((!rem && val === 12) || (rem && val > 12)) {
+  if ((!rem && hrsInt === 12) || (rem && hrsInt > 12)) {
     meridiem = 'pm'
   }
-  return `${time}:00 ${meridiem}`
+  return `${time}:${mins.padStart(2, '0')} ${meridiem}`
 }
 
 /**
@@ -96,7 +97,7 @@ function createSlots() {
 function createMeetingCard({ startTime, endTime, title, color }, idx) {
   const duration = getDuration(endTime, startTime) // endtime - starttime
   const card = document.createElement('div')
-  card.innerHTML = `<div class="details">${title}<br />${startTime}-${endTime}</div>`
+  card.innerHTML = `<div class="details">${title}<br />${getTime(...startTime.split(':'))}-${getTime(...endTime.split(':'))}</div>`
   card.style.height = `${duration * 50}px`
   card.style.backgroundColor = color
   card.style.position = 'absolute'
